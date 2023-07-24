@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 728144946}
   - component: {fileID: 728144947}
   m_Layer: 5
-  m_Name: Grid_Number_Vertical
+  m_Name: Grid_Number_Col
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -937,11 +937,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grid_Box: {fileID: 281719671}
   BoxPrefab: {fileID: 3689097837143754347, guid: c6291a70568b2c04192a00de31aa5207, type: 3}
-  Grid_Number_Vertical: {fileID: 728144946}
-  NumberVerticalPrefab: {fileID: 5182197678863152167, guid: 443acad3e70498a4fa7afcea1a702cac, type: 3}
-  Grid_Number_Horizontal: {fileID: 2093403343}
-  NumberHorizontalPrefab: {fileID: 3508681628724376455, guid: d8ecb888785ff3847acccb09b9e496ac, type: 3}
+  Grid_Number_Col: {fileID: 728144946}
+  NumberColPrefab: {fileID: 5182197678863152167, guid: 443acad3e70498a4fa7afcea1a702cac, type: 3}
+  Grid_Number_Row: {fileID: 2093403343}
+  NumberRowPrefab: {fileID: 3508681628724376455, guid: d8ecb888785ff3847acccb09b9e496ac, type: 3}
   WinPanel: {fileID: 1235112651}
+  dragStartDestState: 0
+  isDragStarted: 0
+  dragBoxOrderList: 
 --- !u!1 &1624750214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,7 +1322,7 @@ GameObject:
   - component: {fileID: 2093403343}
   - component: {fileID: 2093403344}
   m_Layer: 5
-  m_Name: Grid_Number_Horizontal
+  m_Name: Grid_Number_Row
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
