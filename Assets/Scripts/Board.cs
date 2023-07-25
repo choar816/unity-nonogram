@@ -121,6 +121,10 @@ public class Board : MonoBehaviour
 
     void CreateRowNumbers()
     {
+        DestroyChildrenOfParent(Grid_Number_Row);
+        rowNumberList = new List<List<int>>();
+        rowNumberObjList = new List<GameObject>();
+
         for (int i = 0; i < BOARD_SIZE; ++i)
         {
             List<int> numberList = CalculateRowNumberList(i);
@@ -130,10 +134,15 @@ public class Board : MonoBehaviour
             numberObject.GetComponentInChildren<UILabel>().text = string.Join(" ", numberList);
             rowNumberObjList.Add(numberObject);
         }
+        Grid_Number_Row.GetComponent<UIGrid>().Reposition();
     }
 
     void CreateColNumbers()
     {
+        DestroyChildrenOfParent(Grid_Number_Col);
+        colNumberList = new List<List<int>>();
+        colNumberObjList = new List<GameObject>();
+
         for (int i = 0; i < BOARD_SIZE; ++i)
         {
             List<int> numberList = CalculateColNumberList(i);
@@ -363,12 +372,29 @@ public class Board : MonoBehaviour
         {
             box.CloseBox();
         }
-        WinPanel.SetActive(false);
         SetRandomAnswer();
+        CreateRowNumbers();
+        CreateColNumbers();
+
+        WinPanel.SetActive(false);
     }
 
     void SetRandomAnswer()
     {
         answerBoard = answerCandidateList[Random.Range(0, answerCandidateList.Count)];
+    }
+
+    public void DestroyChildrenOfParent(Transform parent)
+    {
+        if (parent == null)
+        {
+            Debug.LogWarning("Parent GameObject is not assigned.");
+            return;
+        }
+
+        for (int i = parent.childCount - 1; i >= 0; i--)
+        {
+            Destroy(parent.GetChild(i).gameObject);
+        }
     }
 }

@@ -73,7 +73,7 @@ public class Box : MonoBehaviour
         {
             if (m_State == State.Closed)
                 CrossBox();
-            else if (m_State == State.Crossed)
+            else if (m_State == State.Open || m_State == State.Crossed)
                 CloseBox();
         }
     }
